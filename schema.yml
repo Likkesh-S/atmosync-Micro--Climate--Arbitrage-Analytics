@@ -1,0 +1,65 @@
+models:
+
+  - name: stg_telemetry
+    description: "Cleaned and standardized IoT telemetry from the Snowflake RAW layer."
+
+    columns:
+
+      - name: container_id
+        description: "Unique identifier for the monitored container."
+        tests:
+          - not_null
+
+      - name: telemetry_hour
+        description: "Timestamp of the telemetry observation."
+        tests:
+          - not_null
+
+      - name: temperature_c
+        description: "Temperature reading in degrees Celsius."
+
+      - name: humidity_pct
+        description: "Relative humidity reading as a percentage."
+
+      - name: ping_status
+        description: "Connectivity or telemetry ping status."
+
+      - name: ingested_at
+        description: "Timestamp when the telemetry record entered Snowflake."
+
+
+  - name: fct_hourly_metrics
+    description: "Hourly container-level environmental metrics used by AtmoSync analytics and dashboards."
+
+    columns:
+
+      - name: container_id
+        description: "Unique identifier for the monitored container."
+        tests:
+          - not_null
+
+      - name: telemetry_hour
+        description: "Hourly timestamp used for aggregation."
+        tests:
+          - not_null
+
+      - name: telemetry_count
+        description: "Number of telemetry records in the container-hour."
+
+      - name: successful_ping_count
+        description: "Number of successful connectivity pings in the container-hour."
+
+      - name: avg_temp_c
+        description: "Average temperature in degrees Celsius."
+
+      - name: peak_temp_c
+        description: "Maximum temperature recorded during the hour."
+
+      - name: min_temp_c
+        description: "Minimum temperature recorded during the hour."
+
+      - name: avg_humidity_pct
+        description: "Average relative humidity percentage."
+
+      - name: temperature_range_c
+        description: "Difference between peak and minimum temperature during the hour."
