@@ -1,0 +1,29 @@
+models:
+  - name: stg_telemetry
+    description: >
+      Cleaned and standardized IoT telemetry records from the AtmoSync
+      Snowflake RAW layer.
+
+    columns:
+
+      - name: container_id
+        description: "Unique identifier for the monitored container."
+        tests:
+          - not_null
+
+      - name: telemetry_hour
+        description: "Timestamp of the telemetry observation."
+        tests:
+          - not_null
+
+      - name: temperature_c
+        description: "Temperature measurement in degrees Celsius."
+
+      - name: humidity_pct
+        description: "Relative humidity measurement as a percentage."
+
+      - name: ping_status
+        description: "Connectivity status associated with the telemetry record."
+
+      - name: ingested_at
+        description: "Timestamp when the telemetry record was ingested into Snowflake."
