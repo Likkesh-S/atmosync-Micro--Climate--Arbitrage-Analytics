@@ -1,0 +1,123 @@
+# AtmoSync - Git Ignore Rules
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Google Colab / local notebook outputs
+*.log
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+config/secrets*
+
+# Snowflake / database local files
+*.db
+*.sqlite
+*.sqlite3
+
+# Data files that should not normally be committed
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Generated reports and temporary files
+reports/generated/
+output/
+outputs/
+tmp/
+temp/
+
+# Dashboard generated files
+.streamlit/secrets.toml
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# OS files
+Desktop.ini
+
+# Python coverage and testing
+.coverage
+.coverage.*
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+
+# Distribution / packaging
+*.manifest
+*.spec
+
+# dbt
+target/
+dbt_packages/
+logs/
+.DBT_PROFILE
+profiles.yml
+
+# Compiled SQL / generated artifacts
+*.compiled.sql
+*.run.sql
+
+# Credentials and cloud configuration
+.aws/
+.gcp/
+.azure/
+
+# Local Superset configuration
+superset_config.py
+superset_home/
+
+# Large files
+*.zip
+*.tar
+*.gz
+*.7z
+
+# Secrets accidentally exported by tools
+*.secret
+*.credentials
