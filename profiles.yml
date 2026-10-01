@@ -1,0 +1,31 @@
+# AtmoSync dbt Snowflake profile
+#
+# IMPORTANT:
+# Do not store Snowflake passwords, private keys, or other secrets
+# directly in this file.
+#
+# Set the environment variables before running dbt:
+#   ATMOSYNC_SNOWFLAKE_ACCOUNT
+#   ATMOSYNC_SNOWFLAKE_USER
+#   ATMOSYNC_SNOWFLAKE_PASSWORD
+#   ATMOSYNC_SNOWFLAKE_DATABASE
+#   ATMOSYNC_SNOWFLAKE_WAREHOUSE
+#
+# Example:
+#   dbt debug --profiles-dir dbt
+
+atmosync:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('ATMOSYNC_SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('ATMOSYNC_SNOWFLAKE_USER') }}"
+      password: "{{ env_var('ATMOSYNC_SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('ATMOSYNC_SNOWFLAKE_ROLE', 'SYSADMIN') }}"
+      database: "{{ env_var('ATMOSYNC_SNOWFLAKE_DATABASE', 'ATMOSYNC') }}"
+      warehouse: "{{ env_var('ATMOSYNC_SNOWFLAKE_WAREHOUSE') }}"
+      schema: DEV
+      threads: 4
+      client_session_keep_alive: false
+      query_tag: "AtmoSync_dbt"
