@@ -1,0 +1,29 @@
+sources:
+  - name: raw
+    description: "Raw IoT telemetry ingested into the AtmoSync Snowflake RAW layer."
+
+    database: ATMOSYNC
+    schema: RAW
+
+    tables:
+      - name: TELEMETRY
+        description: "Raw container telemetry events received from the IoT/Kafka ingestion pipeline."
+
+        columns:
+          - name: CONTAINER_ID
+            description: "Unique identifier for the monitored container."
+
+          - name: TELEMETRY_HOUR
+            description: "Timestamp representing the telemetry observation hour."
+
+          - name: TEMPERATURE_C
+            description: "Observed temperature in degrees Celsius."
+
+          - name: HUMIDITY_PCT
+            description: "Observed relative humidity percentage."
+
+          - name: PING_STATUS
+            description: "Connectivity or telemetry ping status."
+
+          - name: INGESTED_AT
+            description: "Timestamp when the record was ingested into Snowflake."
