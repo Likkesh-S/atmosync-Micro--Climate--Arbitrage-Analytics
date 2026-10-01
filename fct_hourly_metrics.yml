@@ -1,0 +1,41 @@
+models:
+  - name: fct_hourly_metrics
+    description: >
+      Hourly container-level environmental metrics generated from cleaned
+      AtmoSync telemetry. This model is used for analytics, anomaly
+      detection, micro-climate comparison, and dashboard reporting.
+
+    columns:
+
+      - name: container_id
+        description: "Unique identifier for the monitored container."
+        tests:
+          - not_null
+
+      - name: telemetry_hour
+        description: "Hourly timestamp used for telemetry aggregation."
+        tests:
+          - not_null
+
+      - name: telemetry_count
+        description: "Total number of telemetry records for the container-hour."
+
+      - name: successful_ping_count
+        description: "Number of successful connectivity pings during the hour."
+
+      - name: avg_temp_c
+        description: "Average temperature in degrees Celsius."
+
+      - name: peak_temp_c
+        description: "Highest temperature recorded during the hour."
+
+      - name: min_temp_c
+        description: "Lowest temperature recorded during the hour."
+
+      - name: avg_humidity_pct
+        description: "Average relative humidity percentage during the hour."
+
+      - name: temperature_range_c
+        description: >
+          Difference between the peak and minimum temperature
+          recorded during the hour.
